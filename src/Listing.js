@@ -1,31 +1,15 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import List from './List';
+import {ItemsContext} from './ItemsContext';
 
 const Listing = () => {
-    const [items, setItems] = useState([
-          {
-            id: 0,
-            name: 'Gagan',
-            skills: ['js','.net','java']
-          },
-          {
-            id: 1,
-            name: 'Anu',
-            skills: ['node','mongo','java']
-          },
-          {
-            id: 2,
-            name: 'Dikshan',
-            skills: ['js','ptthon','.net']
-          }
-
-    ])
-
+   const [items, setItems] = useContext(ItemsContext);
+   console.log(items);
     return (
         <>
          <h1>Listing Page </h1>
           { items.map( item => (
-                  <List id={item.id} name={item.name} skills={item.skills}/>
+                  <List key={item.id} name={item.name} skills={item.skills}/>
                 
           ))}
         </>

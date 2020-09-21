@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import {ItemsContext} from './ItemsContext'
 
 
 const Nav = () => {
+    const value = useContext(ItemsContext);
+    
     return (
         <>
-          Number of Person : 3
+           Number of Person : {value}
         </>
 
     )
