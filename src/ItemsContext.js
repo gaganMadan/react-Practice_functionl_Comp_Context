@@ -3,20 +3,20 @@ import React, {useState, createContext} from 'react';
 export const ItemsContext = createContext();
 
 // Provider provide the data to application
-export const ItemsProvider = props => {
+export const ItemsProvider = (props) => {
    const [items, setItems] = useState([
           {
-            id: 0,
+            id: 1,
             name: 'Gagan',
             skills: ['js','.net','java']
           },
           {
-            id: 1,
+            id: 2,
             name: 'Anu',
             skills: ['node','mongo','java']
           },
           {
-            id: 2,
+            id: 3,
             name: 'Dikshan',
             skills: ['js','ptthon','.net']
           }
@@ -24,8 +24,8 @@ export const ItemsProvider = props => {
     ])
 
   return (
-    <ItemsContext.Provider value={[items, setItems]}>
-        {props.children}
+    <ItemsContext.Provider value={[items,setItems]}>
+         {props.children}
     </ItemsContext.Provider>
   )
 
