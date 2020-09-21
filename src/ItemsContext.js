@@ -1,9 +1,9 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext} from 'react'
 
 export const ItemsContext = createContext();
 
 // Provider provide the data to application
-export const ItemsProvider = (props) => {
+export const ItemsProvider = props => {
    const [items, setItems] = useState([
           {
             id: 1,
