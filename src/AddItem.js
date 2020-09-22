@@ -25,7 +25,7 @@ const AddItem = () => {
       <div className="skillSet">
          <label> Enter Skill Set : </label>
         <p>
-         <input type="text" value={skillfirst} onChange={e => setSkillfirst(e.target.value)}/>
+         <input type="text" value={skillfirst} name="first" onChange={e => setSkillfirst(e.target.value)}/>
         </p>
         <p>
           <input type="text" value={skillsecond} onChange={e => setSkillsecond(e.target.value)}/>
