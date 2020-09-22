@@ -6,12 +6,14 @@ const AddItem = () => {
   const [items,setItems] = useContext(ItemsContext);
 
   const [name, setName] = useState('');
-  const [skill, setSkill] = useState(['hello', 'fello','ggan']);
-  console.log(skill);
+  const [skillfirst, setSkillfirst] = useState('');
+  const [skillsecond, setSkillsecond] = useState('');
+  const [skillthird, setSkillthird] = useState('');
+  //console.log(skill);
 
   const submitHandler = e => {
     e.preventDefault();
-    setItems([...items, {id: 4, name: name, skills: [...skill]}])
+    setItems([...items, {id: 4, name: name, skills:[ [...skillfirst].join(''), [...skillsecond].join(''), [...skillthird].join('')]}])
   }
 
   return (
@@ -23,14 +25,15 @@ const AddItem = () => {
       <div className="skillSet">
          <label> Enter Skill Set : </label>
         <p>
-         <input type="text" value={skill[0]} onChange={ e => setSkill([ 'hhh', ...skill ])}/>
+         <input type="text" value={skillfirst} onChange={e => setSkillfirst(e.target.value)}/>
         </p>
         <p>
-          <input type="text" value={skill[1]} onChange={ e => setSkill([e.target.value])}/>
+          <input type="text" value={skillsecond} onChange={e => setSkillsecond(e.target.value)}/>
         </p>
         <p>
-          <input type="text" value={skill[2]} onChange={ e => setSkill([e.target.value])}/>
-        </p>      </div>
+          <input type="text" value={skillthird} onChange={e => setSkillthird(e.target.value)}/>
+        </p>      
+      </div>
       <input type="submit"/>
     </form>
   )
