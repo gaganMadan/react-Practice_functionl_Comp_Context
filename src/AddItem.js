@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {ItemsContext} from './ItemsContext';
+
  
 const AddItem = () => {
+  const [items,setItems] = useContext(ItemsContext);
+
   const [name, setName] = useState('');
   const [skill, setSkill] = useState(['']);
 
   const submitHandler = e => {
     e.preventDefault();
-    alert(`Hello ${name} Skills ${skill}`)
+    setItems([...items, {id: 4, name: name, skills: [...skill]}])
   }
 
   return (
@@ -18,13 +22,13 @@ const AddItem = () => {
       <div className="skillSet">
          <label> Enter Skill Set : </label>
         <p>
-         <input type="text" value={skill[0]} onChange={e => setSkill(...skill, e.target.value)}/>
+         <input type="text" value={[skill[0]]} onChange={e => setSkill([...skill, e.target.value])}/>
         </p>
         <p>
-          <input type="text" value={skill[1]} onChange={e => setSkill(...skill, e.target.value)}/>
+          <input type="text" value={[skill[1]]} onChange={e => setSkill([...skill, e.target.value])}/>
         </p>
         <p>
-          <input type="text" value={skill[2]} onChange={e => setSkill(...skill, e.target.value)}/>
+          <input type="text" value={[skill[2]]} onChange={e => setSkill([...skill, e.target.value])}/>
         </p>
       </div>
       <input type="submit"/>
