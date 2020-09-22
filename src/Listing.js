@@ -4,7 +4,7 @@ import {ItemsContext} from './ItemsContext';
 
 const Listing = () => {
    const [items, setItems] = useContext(ItemsContext);
-   console.log(items)
+   //console.log(items)
     return (
         <div className="col">
          <h1>Listing Page </h1>
