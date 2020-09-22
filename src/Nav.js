@@ -3,11 +3,11 @@ import {ItemsContext} from './ItemsContext'
 
 
 const Nav = () => {
-    const value = useContext(ItemsContext);
+    const [items] = useContext(ItemsContext);
     
     return (
         <>
-           Number of Person : {value}
+           Number of Person : {items.length}
         </>
 
     )
