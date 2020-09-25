@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import {DataContext} from './DataContext';
 
 
 const Form1 = () => {
+
+    const [title, addTitle] = useState('');
+    const [body, addBody] = useState('');
+    const {addData} = useContext(DataContext);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        let newData = {
+           "userId": 1,
+            "id":  Math.floor(Math.random() * 100000000),
+            title,
+            body
+        }
+       addData(newData);
+    }
+
       return (
         <div class="form-style-3">
-          <form>
+          <form onSubmit={submitHandler}>
             <fieldset>
               <legend>Personal</legend>
-              <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-              <label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
+              <label for="field1"><span>Tile <span class="required">*</span></span><input type="text" class="input-field" name="title" value={title} onChange={() => setBody(title)}/></label>
+              {/*<label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
               <label for="field3"><span>Phone <span class="required">*</span></span><input type="text" class="input-field" name="field3" value="" /></label>
               <label for="field4">
                   <span>Subject</span>
@@ -17,11 +34,11 @@ const Form1 = () => {
                     <option value="Interview">Interview</option>
                     <option value="Regarding a post">Regarding a post</option>
                   </select>
-              </label>
+              </label>*/}
             </fieldset>
             <fieldset>
               <legend>Message</legend>
-              <label for="field6"><span>Message <span class="required">*</span></span><textarea name="field6" class="textarea-field"></textarea></label>
+              <label for="field6"><span>Body <span class="required">*</span></span><textarea name="body" class="textarea-field" value={body} onChange={() => setBody(body)}></textarea></label>
               <label><span> </span><input type="submit" value="Submit" /></label>
             </fieldset>
         </form>
