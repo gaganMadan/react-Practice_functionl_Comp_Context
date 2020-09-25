@@ -4,6 +4,7 @@ const AppReducer = ( state, action ) => {
         
          case 'ADD_DATA' :
             return {
+                
                 data : [ action.payload, ...state.data]
             }
           default :
