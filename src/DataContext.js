@@ -13,6 +13,12 @@ export const DataProvider = (props) => {
               id: 1, 
               title: 'sunt aut facere repellat', 
               body: 'tempore vitae\nsequi sint nihil reprehenderit' 
+            },
+            {
+              userId: 1, 
+              id: 1, 
+              title: 'sunt aut facere repellat', 
+              body: 'tempore vitae\nsequi sint nihil reprehenderit' 
             }
 
         ]
@@ -22,7 +28,6 @@ export const DataProvider = (props) => {
     const [state, dispatch] =  useReducer( AppReducer, initialState );
 
     const addData = (post) => {
-          
           dispatch({
               type: 'ADD_DATA',
               payload: post
@@ -30,7 +35,7 @@ export const DataProvider = (props) => {
     }
 
     return (
-      <DataContext.Provider value={{data: state.data, addData}}>
+      <DataContext.Provider value={{data: state.data, addData : addData}}>
             {props.children}
       </DataContext.Provider>
     )

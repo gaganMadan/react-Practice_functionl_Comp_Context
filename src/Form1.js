@@ -4,9 +4,9 @@ import {DataContext} from './DataContext';
 
 const Form1 = () => {
 
-    const [title, addTitle] = useState('');
-    const [body, addBody] = useState('');
-    const {addData} = useContext(DataContext);
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    /*const {addData} = useContext(DataContext);*/
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ const Form1 = () => {
           <form onSubmit={submitHandler}>
             <fieldset>
               <legend>Personal</legend>
-              <label for="field1"><span>Tile <span class="required">*</span></span><input type="text" class="input-field" name="title" value={title} onChange={() => setBody(title)}/></label>
+              <label for="field1"><span>Title <span class="required">*</span></span><input type="text" class="input-field" name="title" value={title} onChange={() => set(title)}/></label>
               {/*<label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
               <label for="field3"><span>Phone <span class="required">*</span></span><input type="text" class="input-field" name="field3" value="" /></label>
               <label for="field4">
