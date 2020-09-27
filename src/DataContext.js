@@ -1,5 +1,6 @@
 import React, {createContext,  useReducer} from 'react';
 import AppReducer from  './AppReducer';
+import axios from 'axios';
 
 export const DataContext = createContext();
 
@@ -26,12 +27,17 @@ export const DataProvider = (props) => {
    
 
     const [state, dispatch] =  useReducer( AppReducer, initialState );
+    console.log(state.data);
 
     const addData = (post) => {
-          dispatch({
-              type: 'ADD_DATA',
-              payload: post
+          axios.post(`https://jsonplaceholder.typicode.com/posts/?userId=${post.userId}&title=${post.title}&body=${post.body}`)
+          .then((response) => {
+              dispatch({
+                type: 'ADD_DATA';
+                payload: post
+              })
           })
+         .catch( err => console.log(err))
     }
 
     return (

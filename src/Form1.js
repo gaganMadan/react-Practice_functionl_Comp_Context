@@ -6,14 +6,13 @@ const Form1 = () => {
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    /*const {addData} = useContext(DataContext);*/
+    const {addData} = useContext(DataContext);
 
     const submitHandler = (e) => {
         e.preventDefault();
         let newData = {
            "userId": 1,
-            "id":  Math.floor(Math.random() * 100000000),
-            title,
+           title,
             body
         }
        addData(newData);

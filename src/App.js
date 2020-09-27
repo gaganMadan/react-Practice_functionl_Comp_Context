@@ -4,7 +4,7 @@ import Listing from './Listing';
 import Nav from './Nav';
 import AddItem from  './AddItem'
 import {ItemsProvider} from './ItemsContext';
-import Form1 from './Form1';
+import FormContainer from './FormContainer';
 
 //For Routing 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -23,11 +23,11 @@ const App = () => (
                 <AddItem />
               </Route>
               
-              <Route path="/form1" component={Form1}>
+              <Route path="/form1" component={FormContainer}>
                 <br />
                 <br />
                 <br />
-                <Form1 />
+                <FormContainer />
               </Route>
             </Switch>
           </div>
