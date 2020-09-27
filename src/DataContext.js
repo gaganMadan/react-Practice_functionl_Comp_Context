@@ -17,9 +17,8 @@ export const DataProvider = (props) => {
             },
             {
               userId: 1, 
-              id: 1, 
-              title: 'sunt aut facere repellat', 
-              body: 'tempore vitae\nsequi sint nihil reprehenderit' 
+              title: 'sunte repellat', 
+              body: 'tempore rehenderit' 
             }
 
         ]
@@ -33,7 +32,7 @@ export const DataProvider = (props) => {
           axios.post(`https://jsonplaceholder.typicode.com/posts/?userId=${post.userId}&title=${post.title}&body=${post.body}`)
           .then((response) => {
               dispatch({
-                type: 'ADD_DATA';
+                type: 'ADD_DATA',
                 payload: post
               })
           })

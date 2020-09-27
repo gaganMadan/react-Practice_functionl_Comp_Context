@@ -23,7 +23,7 @@ const Form1 = () => {
           <form onSubmit={submitHandler}>
             <fieldset>
               <legend>Personal</legend>
-              <label for="field1"><span>Title <span class="required">*</span></span><input type="text" class="input-field" name="title" value={title} onChange={() => set(title)}/></label>
+              <label for="field1"><span>Title <span class="required">*</span></span><input type="text" class="input-field" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/></label>
               {/*<label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
               <label for="field3"><span>Phone <span class="required">*</span></span><input type="text" class="input-field" name="field3" value="" /></label>
               <label for="field4">
@@ -37,7 +37,7 @@ const Form1 = () => {
             </fieldset>
             <fieldset>
               <legend>Message</legend>
-              <label for="field6"><span>Body <span class="required">*</span></span><textarea name="body" class="textarea-field" value={body} onChange={() => setBody(body)}></textarea></label>
+              <label for="field6"><span>Body <span class="required">*</span></span><textarea name="body" class="textarea-field" value={body} onChange={(e) => setBody(e.target.value)}></textarea></label>
               <label><span> </span><input type="submit" value="Submit" /></label>
             </fieldset>
         </form>
